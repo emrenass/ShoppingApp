@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Prime">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/primefaces-6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

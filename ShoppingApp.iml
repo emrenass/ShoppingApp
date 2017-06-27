@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$USER_HOME$/Desktop/mysql-connector-java-5.1.42-bin.jar!/" />
+    <libelement value="jar://$USER_HOME$/Desktop/primefaces-6.0.jar!/" />
+    <conelement value="oracle.eclipse.tools.glassfish.lib.system" />
+    <conelement value="org.eclipse.jst.j2ee.internal.web.container" />
+    <conelement value="org.eclipse.jst.j2ee.internal.module.container" />
+    <src_description expected_position="0">
+      <src_folder value="file://$USER_HOME$/workspace/ShoppingApp/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$USER_HOME$/workspace/ShoppingApp/build/classes" />
+    <exclude-output />
+    <content url="file://$USER_HOME$/workspace/ShoppingApp">
+      <sourceFolder url="file://$USER_HOME$/workspace/ShoppingApp/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="library" name="oracle.eclipse.tools.glassfish.lib.system" level="application" />
+    <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.web.container" level="application" />
+    <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.module.container" level="application" />
+    <orderEntry type="module-library">
+      <library name="mysql-connector-java-5.1.42-bin.jar">
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/mysql-connector-java-5.1.42-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="primefaces-6.0.jar">
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/primefaces-6.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module" module-name="shopping" />
+    <orderEntry type="library" name="Hibernate" level="project" />
+    <orderEntry type="library" name="log4j" level="project" />
+    <orderEntry type="library" name="Prime" level="project" />
+  </component>
+</module>

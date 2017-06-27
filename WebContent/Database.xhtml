@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Shopping</title>
+	<h:outputStylesheet library="css" name="Product-table.css" />
+</h:head>
+<body>
+
+	<h:outputLabel value="Welcome  #{loginBean.name}"></h:outputLabel>
+	<h:form>
+		<h:commandButton action="#{loginBean.logout}" value="logout"></h:commandButton>
+		<br></br>
+	</h:form>
+	<br></br>
+	<div style="width: 100%;">
+		<div style="width: 75%; float: left;">
+			<h2>Products</h2>
+			<h:form>
+				<p:dataTable id="dataTable" var="product"
+					value="#{databaseBean.products}"
+					filteredValue="#{databaseBean.filteredProducts}"
+					widgetVar="productWidget" paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+                     {PreviousPageLink} {PageLinks} {NextPageLink}
+                     {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15,20,25">
+					<p:ajax event="page" listener="#{databaseBean.update}" update="dataTable"/>
+					<f:facet name="header">
+						<p:outputPanel>
+							<h:outputText value="Search:" />
+							<p:inputText id="globalFilter"
+								onkeyup="PF('productWidget').filter()" style="width:150px"
+								placeholder="Search text" />
+						</p:outputPanel>
+					</f:facet>
+
+					<p:column headerText="Id" filterBy="#{product.id}"
+						filterMatchMode="contains">
+						<h:outputText value="#{product.id}" />
+					</p:column>
+
+					<p:column headerText="Name" filterBy="#{product.name}"
+						filterMatchMode="contains">
+						<h:outputText value="#{product.name}" />
+					</p:column>
+
+					<p:column headerText="Price" filterBy="#{product.price}"
+						filterMatchMode="contains">
+						<h:outputText value="#{product.price}" />
+					</p:column>
+
+					<p:column headerText="Quantity" filterBy="#{product.quantity}"
+						filterMatchMode="contains">
+						<h:outputText value="#{product.quantity}" />
+					</p:column>
+
+					<p:column headerText="Category" filterBy="#{product.category}"
+						filterMatchMode="contains">
+						<h:outputText value="#{product.category}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Action</f:facet>
+						<h:commandButton type="submit" value="Buy" name="buyLink"
+							action="#{databaseBean.addtoCart}">
+							<f:param name="productId" value="#{product.id}" />
+							<f:param name="userId" value="#{loginBean.name}" />
+						</h:commandButton>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</div>
+		<div style="width: 25%; float: right;">
+			<h2>Cart</h2>
+			<p:dataTable value="#{databaseBean.cart}" var="product"
+				styleClass="product-table" headerClass="product-table-header"
+				rowClasses="product-table-odd-row,product-table-even-row">
+				<p:column>
+					<f:facet name="header">Product ID</f:facet>
+			#{product.productId}
+				</p:column>
+				<p:column>
+					<f:facet name="header">Quantity</f:facet>
+			#{product.quantity}
+				</p:column>
+			</p:dataTable>
+		</div>
+	</div>
+</body>
+</html>
